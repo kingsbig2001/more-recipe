@@ -1,4 +1,7 @@
 function aritGeo(arr){
+  if(!arr){
+    return -1;
+  }
   //check if arguement parsed is an array
   if(!Array.isArray(arr)){
     return -1;
@@ -31,3 +34,4 @@ function aritGeo(arr){
   
 }
 }
+module.exports = aritGeo;
