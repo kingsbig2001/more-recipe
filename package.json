@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/kingsbig2001/more-recipe/issues"
   },
-  "homepage": "https://github.com/kingsbig2001/more-recipe#readme"
+  "homepage": "https://github.com/kingsbig2001/more-recipe#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5",
+    "morgan": "^1.9.0"
+  }
 }
