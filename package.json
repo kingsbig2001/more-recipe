@@ -1,15 +1,19 @@
 {
-  "name": "more-recipe",
+  "name": "recipe",
   "version": "1.0.0",
-  "description": "recipe book",
-  "main": "app.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "recipe",
-    "ingredients"
-  ],
-  "author": "ibeh",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingsbig2001/more-recipe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kingsbig2001/more-recipe/issues"
+  },
+  "homepage": "https://github.com/kingsbig2001/more-recipe#readme"
 }
