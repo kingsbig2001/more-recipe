@@ -22,11 +22,12 @@ app.get('*', (req, res) => res.status(200).send({
 }));
 
 app.post('/api/recipes', (req, res)=>{
+    //let recipe = req.body;
     console.log(req.body);
     res.send(req.body);
 });
 
-app.put('*', (req, res)=>{
+app.put('api/recipes', (req, res)=>{
     app.render(res.json);
 });
 
