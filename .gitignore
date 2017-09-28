@@ -4,3 +4,8 @@
 /aritgeo/package.json
 /server
 /client
+/template
+index.html
+/template/img
+Thumbs.db
+*.html
