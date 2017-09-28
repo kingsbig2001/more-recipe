@@ -2,3 +2,5 @@
 .DS_Store
 /aritgeo
 /aritgeo/package.json
+/server
+/client
