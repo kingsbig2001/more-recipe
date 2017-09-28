@@ -12,14 +12,27 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//Setting up data for our route
+const recipe = [{id : 1, name : 'Pepper soup'}, {id : 2, name : 'Egusi'}, {id: 3, name : 'Rice'}];
+
 // Setting up API routes
 app.get('/api', (req, res) => res.status(200).send({
     message: 'Welcome to the Recipe API!',
   }));
 // Setup a default catch-all route that sends back a welcome message in JSON format.
-app.get('*', (req, res) => res.status(200).send({
-  message: 'Welcome to the beginning of nothingness.',
-}));
+app.get('/api/recipe', (req, res) => res.status(200).send(recipe));
+
+//Search recipe using id
+app.get('/api/recipe/:id', function(req, res) {
+    const id = parseInt(req.params.id, 10);
+    const result = recipe.filter(r => r.id === id)[0];
+ 
+    if (!result) {
+        res.sendStatus(404);
+    } else {
+        res.send(result);
+    }
+});
 
 app.post('/api/recipes', (req, res)=>{
     //let recipe = req.body;
