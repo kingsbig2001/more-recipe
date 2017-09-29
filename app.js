@@ -12,10 +12,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//Setting up data for our route
-const recipe = [{id : 1, name : 'Pepper soup', upvote : 44, ingredients :['rice', 'okro', 'fish']},
- {id : 2, name : 'Egusi', upvote : 33, ingredients: ['okro', 'fish', 'onion']},
- {id: 3, name : 'Rice', upvote : 33, ingredients: ['meat', 'fish', 'pepper']}
+//Setting up Dummy data for API route
+const recipe = [{id : 1, name : 'Pepper soup', upvote : 44, ingredients :['rice', 'okro', 'fish'], reviews: 'this is a review for this '},
+ {id : 2, name : 'Egusi', upvote : 33, ingredients: ['okro', 'fish', 'onion'], reviews: 'another review here'},
+ {id: 3, name : 'Rice', upvote : 33, ingredients: ['meat', 'fish', 'pepper'], reviews : 'last review'}
 ];
 
 // Setting up API routes
@@ -37,6 +37,16 @@ app.get('/api/recipe/:upvote', function(req, res) {
     }
 });
 
+app.get('/api/recipe/:id', function(req, res) {
+    let id = parseInt(req.params.id, 10);
+    let result = recipe.filter(r => r.id === id)[0];
+
+   if (!result) {
+        res.sendStatus(404);
+    } else {
+        res.send(result);
+    }
+});
 // app.post('/api/recipe', (req, res)=>{
 //     //let recipe = req.body;
 //     console.log(req.body);
@@ -50,11 +60,12 @@ app.post('/api/recipe', function(req, res) {
     }
  
     recipe.push(item);
- 
-    res.send(recipe);
+ //return posted recipe
+ let result = recipe.filter(newRecipe => newRecipe.id === item.id)[0];
+    res.send(result);
 });
 
-app.put('/api/recipe/:upvote', function(req, res) {
+app.put('/api/recipe/:id', function(req, res) {
     let id = parseInt(req.params.id, 10);
     let existingItem = recipe.filter(r => r.id === id)[0];
  
