@@ -1,15 +1,31 @@
 {
-  "name": "more-recipe",
+  "name": "recipe",
   "version": "1.0.0",
-  "description": "recipe book",
-  "main": "app.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
+    "start:dev": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "recipe",
-    "ingredients"
-  ],
-  "author": "ibeh",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingsbig2001/more-recipe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kingsbig2001/more-recipe/issues"
+  },
+  "homepage": "https://github.com/kingsbig2001/more-recipe#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.7.2",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.7.0",
+    "nodemon": "^1.12.1"
+  }
 }

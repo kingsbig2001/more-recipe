@@ -1,0 +1,15 @@
+/node_modules
+.DS_Store
+/aritgeo
+/aritgeo/package.json
+/server
+/client
+/template
+index.html
+/template/img
+Thumbs.db
+*.html
+/views
+/public
+*.css
+*.db
