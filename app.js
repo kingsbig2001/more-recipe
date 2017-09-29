@@ -13,7 +13,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //Setting up data for our route
-const recipe = [{id : 1, name : 'Pepper soup'}, {id : 2, name : 'Egusi'}, {id: 3, name : 'Rice'}];
+const recipe = [{id : 1, name : 'Pepper soup', upvote : 44, ingredients :['rice', 'okro', 'fish']},
+ {id : 2, name : 'Egusi', upvote : 33, ingredients: ['okro', 'fish', 'onion']},
+ {id: 3, name : 'Rice', upvote : 33, ingredients: ['meat', 'fish', 'pepper']}
+];
 
 // Setting up API routes
 app.get('/api', (req, res) => res.status(200).send({
@@ -23,9 +26,9 @@ app.get('/api', (req, res) => res.status(200).send({
 app.get('/api/recipe', (req, res) => res.status(200).send(recipe));
 
 //Search recipe using id
-app.get('/api/recipe/:id', function(req, res) {
-    let id = parseInt(req.params.id, 10);
-    let result = recipe.filter(r => r.id === id)[0];
+app.get('/api/recipe/:upvote', function(req, res) {
+    let upvote = parseInt(req.params.upvote, 10);
+    let result = recipe.filter(r => r.upvote === upvote);
  
     if (!result) {
         res.sendStatus(404);
@@ -51,7 +54,7 @@ app.post('/api/recipe', function(req, res) {
     res.send(recipe);
 });
 
-app.put('/api/recipe/:id', function(req, res) {
+app.put('/api/recipe/:upvote', function(req, res) {
     let id = parseInt(req.params.id, 10);
     let existingItem = recipe.filter(r => r.id === id)[0];
  
