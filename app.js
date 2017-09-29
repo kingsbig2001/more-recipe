@@ -28,7 +28,7 @@ app.get('/api/recipe', (req, res) => res.status(200).send(recipe));
 //Search recipe using id
 app.get('/api/recipe/:upvote', function(req, res) {
     let upvote = parseInt(req.params.upvote, 10);
-    let result = recipe.filter(r => r.upvote === upvote);
+    let result = recipe.filter(voted => voted.upvote === upvote);
  
     if (!result) {
         res.sendStatus(404);
